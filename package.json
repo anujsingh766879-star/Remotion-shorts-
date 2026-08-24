@@ -1,0 +1,17 @@
+{
+  "name": "faceless-shorts-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.190",
+    "@remotion/cli": "4.0.190",
+    "@remotion/renderer": "4.0.190",
+    "express": "^4.19.2",
+    "remotion": "4.0.190"
+  }
+}
