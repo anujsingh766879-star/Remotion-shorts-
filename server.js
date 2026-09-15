@@ -68,6 +68,8 @@ app.post("/render", checkAuth, async (req, res) => {
       inputProps: { scenes, audioUrl: audioUrl || "" },
     });
 
+    const stats = fs.statSync(outputPath);
+    console.log("Render complete. File size:", stats.size, "bytes");
     res.setHeader("Content-Type", "video/mp4");
     const stream = fs.createReadStream(outputPath);
     stream.pipe(res);
