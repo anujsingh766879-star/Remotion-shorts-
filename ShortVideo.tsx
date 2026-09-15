@@ -30,9 +30,6 @@ const Scene: React.FC<{ imageUrl: string; text: string }> = ({
   const { durationInFrames } = useVideoConfig();
 
   // slow Ken Burns zoom over the scene's duration
-  const scale = interpolate(frame, [0, durationInFrames], [1, 1.12], {
-    extrapolateRight: "clamp",
-  });
 
   // fade in/out
   const opacity = interpolate(
@@ -50,7 +47,6 @@ const Scene: React.FC<{ imageUrl: string; text: string }> = ({
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          transform: `scale(${scale})`,
         }}
       />
       <AbsoluteFill
