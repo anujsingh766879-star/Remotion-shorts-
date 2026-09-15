@@ -6,7 +6,10 @@ const { renderMedia, selectComposition } = require("@remotion/renderer");
 
 const app = express();
 app.use(express.json({ limit: "10mb" }));
-
+app.use((err, req, res, next) => {
+  console.error("JSON parse error:", err.message);
+  res.status(400).json({ error: "Bad JSON body", details: err.message });
+});
 const PORT = process.env.PORT || 3000;
 const OUTPUT_DIR = path.join(__dirname, "out");
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
