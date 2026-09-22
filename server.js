@@ -23,7 +23,6 @@ function getBundle() {
   }
   return bundleLocationPromise;
 }
-entryPoint: path.join(__dirname, "index.ts"),
 
 // Simple shared-secret auth so random people on the internet can't burn your Railway hours
 function checkAuth(req, res, next) {
