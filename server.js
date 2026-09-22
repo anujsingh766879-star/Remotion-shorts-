@@ -15,14 +15,7 @@ const OUTPUT_DIR = path.join(__dirname, "out");
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
 
 let bundleLocationPromise = null;
-function getBundle() {
-  if (!bundleLocationPromise) {
-    bundleLocationPromise = bundle({
-      entryPoint: path.join(__dirname, "src", "index.ts"),
-    });
-  }
-  return bundleLocationPromise;
-}
+entryPoint: path.join(__dirname, "index.ts"),
 
 // Simple shared-secret auth so random people on the internet can't burn your Railway hours
 function checkAuth(req, res, next) {
