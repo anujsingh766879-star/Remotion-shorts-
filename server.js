@@ -28,10 +28,11 @@ function getBundle() {
 function checkAuth(req, res, next) {
   const key = req.header("x-render-key");
   if (!process.env.RENDER_SECRET || key !== process.env.RENDER_SECRET) {
+    console.log("Auth failed. Received:", JSON.stringify(key), "Expected:", JSON.stringify(process.env.RENDER_SECRET));
     return res.status(401).json({ error: "Unauthorized" });
   }
   next();
-}
+  }
 
 app.get("/health", (req, res) => res.json({ ok: true }));
 
